@@ -17,14 +17,17 @@ COMANDOS PARA O CMD DO PROJETO:
 
 6 - python manage.py migrate
 
-7 - python manage.py startapp exames
+7 - python manage.py startapp especialidades
 
 8 - python manage.py createsuperuser
 
 
 BURACOS PARA RESOLVE:
 
-1 - Validação de email existente e regex 
+1 - Validação de email existente
 
+2 - Front-end
+
+3 - Atualizar o projeto conforme as atualizações do time da NathCare
 
 
