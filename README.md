@@ -22,7 +22,7 @@ COMANDOS PARA O CMD DO PROJETO:
 8 - python manage.py createsuperuser
 
 
-BURACOS PARA RESOLVE:
+BURACOS PARA RESOLVER:
 
 1 - Validação de email existente
 
