@@ -14,21 +14,23 @@
 <select class="select form-control bg-select" multiple name="especialidades">
     {% for item in especialidades %}
 
-    <option class="opt" value="{{item.id}}">{{item.nome}}</option>
+    <option class="opt" id="getProfissionais" value="{{item.id}}">{{item.nome}}</option>
 
     {% endfor %}
 
 </select>
     <br>
     <br>
-    <h3 class="font-destaque">Seleção de profissional</h3><form action="" method="POST">
-<label for=>Selecione o médico(a) que deseja para realizar a consulta:</label>
-<select class="select form-control bg-select" multiple name="especialidades">
-<option class="opt" value="">Espaço reservado para os médicos da determinada especialidade</option>
 
-</select>
+    <h3 class="font-destaque">Seleção de profissional</h3>
+    <form action="" method="POST">
+        <label for=>Selecione o médico(a) que deseja para realizar a consulta:</label>
+        <select class="select form-control bg-select" id="profissionaisEspecialidade" multiple name="especialidades">
+            <option class="opt" value="">Espaço reservado para os médicos da determinada especialidade</option>
+        </select>
 <br>
-<input type="submit" class="btn-default tamanho-2" name="ultimo_nome" value=" Confirmar Informações"> </form>
+    <input type="submit" class="btn-default tamanho-2" name="ultimo_nome" value=" Confirmar Informações"> </form>
+
   </div>
 <div class="col-md-2">
 </div>
@@ -52,4 +54,5 @@ R$ 30
 </div>
 </div>
 </div>
+<script src="{% static 'consultas/js/solicitar-consultas.js' %}"></script>
 {% endblock 'conteudo' %}
