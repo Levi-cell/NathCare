@@ -5,7 +5,10 @@
 {% endblock 'head' %}
 {% block 'conteudo' %}
 <div class="container">
-<h3 class="font-destaque-secundaria"> <img width="10%" src="{% static 'geral/img/logo.png' %}" alt="">Cadastre-se</h3>
+<h3 class="font-destaque" style="margin-bottom: 80px; margin-top: 48px; color: white">Login</h3>
+<div class="col-md-3" style="width: 23.7%;">
+    <img class="col-md-12 pt-4" src="{% static 'geral/img/nathcare-colorido.png' %}" alt="" style="margin-bottom: 60px;">        
+  </div>
 {% if messages %}
 <br>
 {% for message in messages %}
@@ -16,15 +19,23 @@
 <form action="{% url 'login' %}" method="POST">{% csrf_token %}
 <label>CPF</label>
 <br>
-<input type="text" class="input-default" name="cpf">
+<input type="text" class="input-default" name="cpf" style="width: 350px;">
 <br>
 <br>
 <label>Senha</label>
 <br>
-<input type="password" class="input-default" name="senha">
+<input type="password" class="input-default" name="senha" style="width: 350px;">
 <br>
 <br>
-<input type="submit" class="btn-default" value="Logar">
+<br>
+<input type="submit" class="btn-default" value="Logar" style="width: 150px; font-weight: 500;">
+
+<style>
+    .btn-default:hover {
+      background-color: #5cd3db;
+    }
+  </style>
+
 </form>
 </div>
 </div>
