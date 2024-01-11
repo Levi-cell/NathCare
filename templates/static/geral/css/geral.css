@@ -1,0 +1,31 @@
+* {
+    box-sizing: border-box;    
+}
+
+body, h1, h2, ul, li, p {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    --type-first: 'Poppins', sans-serif;
+    --type-second: 'Roboto', sans-serif;
+}
+
+ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+.container1 {
+    max-width: 1120px;
+    margin: 0 auto;
+}
+
+.container2 {
+    max-width: 632px;
+    margin: 0 auto;    
+}

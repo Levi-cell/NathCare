@@ -1,42 +1,60 @@
 {% extends "bases/base.html" %}
 {% load static %}
 {% block 'head' %}
-<link href="{% static 'usuarios/css/css.css' %}" rel="stylesheet">
+
+<link href="{% static 'usuarios/css/styles.css' %}" rel="stylesheet" xmlns="http://www.w3.org/1999/html">
+
 {% endblock 'head' %}
 {% block 'conteudo' %}
-<div class="container">
-<h3 class="font-destaque" style="margin-bottom: 80px; margin-top: 48px; color: white">Login</h3>
-<div class="col-md-3" style="width: 23.7%;">
-    <img class="col-md-12 pt-4" src="{% static 'geral/img/nathcare-colorido.png' %}" alt="" style="margin-bottom: 60px;">        
-  </div>
-{% if messages %}
-<br>
-{% for message in messages %}
-<div class="alert {{ message.tags }}">{{ message }}</div>
-{% endfor %}
-{% endif %}
-<div>
-<form action="{% url 'login' %}" method="POST">{% csrf_token %}
-<label>CPF</label>
-<br>
-<input type="text" class="input-default" name="cpf" style="width: 350px;">
-<br>
-<br>
-<label>Senha</label>
-<br>
-<input type="password" class="input-default" name="senha" style="width: 350px;">
-<br>
-<br>
-<br>
-<input type="submit" class="btn-default" value="Logar" style="width: 150px; font-weight: 500;">
 
-<style>
-    .btn-default:hover {
-      background-color: #5cd3db;
-    }
-  </style>
+<body id="login">
+  <header>
+    <div class="header container1">
+      <img class="logotype" src="{% static 'geral/img/nathcare-colorido.png' %}" alt="NathCare Logo" width="250px" height="65px">
+      <nav>
+        <ul class="navegacao-principal">
+          <li><a href="/especialidades/solicitar_consultas/">Solicitar consulta</a></li>
+          <li><a href="/">Próximos exames</a></li>
+          <li><a href="/">Resultados</a></li>        
+          <li><a href="/usuarios/cadastro/">Cadastro</a></li>
+          <li><a href="/usuarios/login/">Login</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  
+  <main>
+    <section class="container2">
+      <div class="login-area">
+        <h1>Login</h1>
+        
+        {% if messages %}
+        <br>
+        {% for message in messages %}
+    
+        <div class="alert {{ message.tags }}">{{ message }}</div>
+        {% endfor %}
+        {% endif %}
+    
+        <div>
+          <form action="{% url 'login' %}" method="POST">{% csrf_token %}
+            <label>CPF</label>
+            <input type="text" class="input-default" name="cpf" placeholder="XXXXXXXXXXX">
+            <label>Senha</label>
+            <input type="password" class="input-default" name="senha" placeholder="********">
+            <input type="submit" class="botao-padrao" value="LOGAR">
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+  
+  <footer>
+    <p>NathCare © Todos os direitos reservados.</p>
+  </footer>
+  
+  <script src="{% static 'usuarios/js/scripts.js' %}"></script>    
+</body>
 
-</form>
-</div>
-</div>
+
 {% endblock %}
