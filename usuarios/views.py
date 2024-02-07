@@ -17,12 +17,20 @@ def cadastro(request):
         email = request.POST.get('email')
         confirmar_senha = request.POST.get('confirmar_senha')
 
+        if any(letra.isdigit() for letra in primeiro_nome):
+            messages.add_message(request, constants.ERROR, message="Nome não pode conter números.")
+            return redirect("/usuarios/cadastro")
+
+        if any(letra.isdigit() for letra in ultimo_nome):
+            messages.add_message(request, constants.ERROR, message="Sobrenome não pode conter números.")
+            return redirect("/usuarios/cadastro")
+
         if not len(cpf) == 11 or not cpf.isdigit():
-            messages.add_message(request, constants.ERROR, message="CPF inválido")
+            messages.add_message(request, constants.ERROR, message="CPF inválido, use apenas números")
             return redirect("/usuarios/cadastro/")
 
         if '@' not in email or not any(ext in email for ext in [".com", ".br", ".org"]):
-            messages.add_message(request, constants.ERROR, message="Email inválido")
+            messages.add_message(request, constants.ERROR, message="Email inválido, use '@' e .com ou .br ou .org")
             return redirect("/usuarios/cadastro/")
 
         if not senha == confirmar_senha:
@@ -36,7 +44,7 @@ def cadastro(request):
         user = User.objects.filter(email=email).exists()
 
         if user:
-            messages.add_message(request, constants.ERROR, message="Usuário já cadastrado")
+            messages.add_message(request, constants.ERROR, message="Email já cadastrado")
             return redirect('/usuarios/cadastro/')
 
 
@@ -52,7 +60,7 @@ def cadastro(request):
             )
             messages.add_message(request, constants.SUCCESS, 'Usuário salvo com sucesso')
         except:
-            messages.add_message(request, constants.ERROR, 'Erro interno do sistema, contate um administrador')
+            messages.add_message(request, constants.ERROR, 'CPF já cadastrado, para mais dúvidas contate o suporte.')
             return redirect('/usuarios/cadastro/')
             
         return HttpResponse('/usuarios/cadastro/')
@@ -61,17 +69,21 @@ def cadastro(request):
 def logar(request):
     if request.method == "GET":
         return render(request, 'login.html')
+
+    # if request.method == "POST":
+    #     cpf = request.POST.get('cpf')
+    #     senha =
+
     elif request.method == "POST":
         cpf = request.POST.get('cpf')
         senha = request.POST.get('senha')
-
         user = authenticate(username=cpf, password=senha)
 
         if user:
             login(request, user)
             return redirect('/')
         else:
-            messages.add_message(request, constants.ERROR, "Username ou senha inválidos")
+            messages.add_message(request, constants.ERROR, "Username ou senha inválidos.")
             return redirect('/usuarios/login')
 
 

@@ -1,7 +1,6 @@
 from django.contrib import admin
 from .models import Especialidade, Profissional, AgendamentoConsulta
 
-
 # admin.site.register(DadosConsulta)
 # admin.site.register(SolicitarConsulta)
 # admin.site.register(PacoteConsultas)
