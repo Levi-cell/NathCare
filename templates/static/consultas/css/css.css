@@ -1,26 +1,101 @@
-body{
-background-image: url('/static/usuarios/css/modulos/paginas.css'); background-size: cover;
+/* Estilos da Página Solicitar Consultas */
+
+* {
+    box-sizing: border-box;    
 }
-.bg-select{
-background-color: transparent;
-border-color: var(--differential-color);
+
+body, h1, h2, ul, li, p {
+    margin: 0;
+    padding: 0;
 }
-.card{
-background-color: rgba(217, 217, 217, .14); color: white;
-padding: 15px;
+
+body {
+    --type-first: 'Poppins', sans-serif;
+    --type-second: 'Roboto', sans-serif;
 }
-.previa-preco{
-float: right;
-font-weight: bold;
+
+ul {
+    list-style: none;
 }
-.tamanho-2{
-width: 50%;
+
+a {
+    text-decoration: none;
 }
-.btn-secundario{
-background-color: #838FFF; color: black;
-padding: 10px;
-font-weight: bold;
-border: none;
-border-radius: 10px;
+
+.container1 {
+    max-width: 1120px;
+    margin: 0 auto;
 }
-.btn-secundario-outline{ background-color: transparent; border-color: #838FFF;padding: 10px; }
+
+.container2 {
+    max-width: 632px;
+    margin: 0 auto;    
+}
+
+#consultas main {
+    background: linear-gradient(to right, #006124, #009738);
+    min-height: 80vh;    
+    padding: 120px 0;    
+}
+
+/* Estilos do Header da Página Solicitar Consultas */
+
+.header {
+    display: flex;
+    padding-top: 48px;
+    padding-bottom: 56px;
+    justify-content: space-between;
+}
+
+.navegacao-principal {
+    display: flex;
+    gap: 48px;    
+    padding-top: 44px;
+}
+
+.navegacao-principal li:nth-child(3) {
+    margin-right: 103px;
+    position: relative;
+}
+
+.navegacao-principal li:nth-child(3)::after {
+    content: url(../../geral/img/linha-vertical.svg);
+    position: absolute;
+    left: 158px;
+    top: -51px;
+}
+
+.navegacao-principal li a {
+    font-family: var(--type-second);
+    font-size: 1rem;
+    font-weight: 500;
+    color: black;
+}
+
+.navegacao-principal li a:hover {
+    color: #009738;
+}
+
+.navegacao-principal li:first-child a {
+    position: relative;
+    color: #009738;
+}
+
+.navegacao-principal li:first-child a::after {
+    content: "";
+    width: 100%;
+    height: 2px;
+    position: absolute;
+    background-color: #009738;
+    top: 25px;
+    right: 0px;
+    border-radius: 8px;
+}
+
+/* Estilos do Footer da Página Solicitar Consultas */
+
+footer p {
+    text-align: center;
+    padding: 24px 0;
+    font-family: var(--type-second);
+}
